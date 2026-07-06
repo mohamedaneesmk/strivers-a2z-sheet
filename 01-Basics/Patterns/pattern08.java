@@ -1,6 +1,6 @@
 public class pattern08 {
     public static void main(String[] args) {
-        int N = 5;
+        int N = 10;
 
         for (int row = 0; row < N; row++) {
 
