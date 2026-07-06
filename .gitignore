@@ -1,0 +1,12 @@
+# Compiled Java files
+*.class
+
+# Java build directories
+bin/
+out/
+target/
+
+# IDE files (optional)
+.idea/
+.vscode/
+*.iml
