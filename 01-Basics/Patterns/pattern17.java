@@ -9,14 +9,16 @@ public class pattern17 {
                 System.out.print(" ");
             }
 
-            // Increasing characters
-            for (int col = 0; col <= row; col++) {
-                System.out.print((char) ('A' + col));
-            }
+            // Characters
+            char ch = 'A';
+            int breakpoint = (2 * row + 1) / 2;
 
-            // Decreasing characters
-            for (int col = row - 1; col >= 0; col--) {
-                System.out.print((char) ('A' + col));
+            for (int col = 1; col <= 2 * row + 1; col++) {
+                System.out.print(ch);
+                if (col <= breakpoint)
+                    ch++;
+                else
+                    ch--;
             }
 
             System.out.println();
