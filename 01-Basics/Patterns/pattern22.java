@@ -8,10 +8,11 @@ public class pattern22 {
                 int left = col;
                 int right = (2 * n - 2) - col;
                 int bottom = (2 * n - 2) - row;
-
+ 
                 System.out.print(n - Math.min(Math.min(top, bottom), Math.min(left, right)) + " ");
             }
             System.out.println();
         }
     }
 }
+ 
