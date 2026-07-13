@@ -1,8 +1,5 @@
 package Maths;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class GCD {
     public static void main(String[] args) {
         int n1 = 4, n2 = 6;
@@ -11,33 +8,29 @@ public class GCD {
 
     private static int findGCD(int n1, int n2) {
 
-        int gcd = 1;
-        
-        List<Integer> list1 = new ArrayList<>();
-        List<Integer> list2 = new ArrayList<>();
+        /*
+         * int gcd = 1;
+         * 
+         * for (int i = Math.min(n1, n2); i >= 1; i--) {
+         * if (n1 % i == 0 && n2 % i == 0) {
+         * gcd = i;
+         * break;
+         * }
+         * }
+         * 
+         * return gcd;
+         */
 
-        for (int i = 1; i <= n1; i++) {
-            if (n1 % i == 0) {
-                list1.add(i);
-            }
+        // Euclidean Algorithm
+        while (n1 > 0 && n2 > 0) {
+            if (n1 > n2)
+                n1 = n1 % n2;
+            else
+                n2 = n2 % n1;
         }
 
-        for (int i = 1; i <= n2; i++) {
-            if (n2 % i == 0) {
-                list2.add(i);
-
-            }
-        }
-
-        // System.out.println(list1);
-        // System.out.println(list2);
-
-        for (int num : list1) {
-            if (list2.contains(num)) {
-                gcd = Math.max(num, gcd);
-            }
-        }
-
-        return gcd;
+        if (n1 == 0)
+            return n2;
+        return n1;
     }
 }
