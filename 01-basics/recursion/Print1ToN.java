@@ -3,14 +3,14 @@ package recursion;
 public class Print1ToN {
     public static void main(String[] args) {
         int N = 5;
-        print(N);
+        print(1, N);
     }
 
-    private static void print(int N) {
-        if (N == 0)
+    private static void print(int i, int N) {
+        if (i > N)
             return;
 
-        print(N - 1);
-        System.out.println(N);
+        System.out.println(i);
+        print(i + 1, N);
     }
 }
