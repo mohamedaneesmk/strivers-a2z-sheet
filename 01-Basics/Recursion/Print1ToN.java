@@ -1,4 +1,4 @@
-package Recursion;
+package recursion;
 
 public class Print1ToN {
     public static void main(String[] args) {

@@ -1,6 +1,6 @@
 // Collections - Helps in storing and Processing of Data Efficiently
 
-package Collections;
+package collections;
 
 import java.util.ArrayList;
 import java.util.Collections;

@@ -1,4 +1,4 @@
-package Collections;
+package collections;
 
 // LinkedList Concepts Demo — implements List + Deque + Queue
 

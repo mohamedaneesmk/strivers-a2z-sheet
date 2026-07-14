@@ -1,4 +1,4 @@
-package Maths;
+package maths;
 
 public class ReverseTheNumber {
     public static void main(String[] args) {
