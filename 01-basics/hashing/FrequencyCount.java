@@ -6,7 +6,7 @@ import java.util.Map;
 public class FrequencyCount {
     public static void main(String[] args) {
         int[] nums = { 1, 2, 2, 1, 3 };
-
+        
         Map<Integer, Integer> map = frequencyCount(nums);
 
         for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
