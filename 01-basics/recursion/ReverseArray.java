@@ -2,25 +2,24 @@ package recursion;
 
 import java.util.Arrays;
 
-public class ReverseArray {
-
+class ReverseArray {
     public static void main(String[] args) {
-        int[] arr = { 1, 2, 3, 4, 5 };
+        int[] nums = { 1, 2, 3, 4, 5 };
 
-        reverse(arr, 0, arr.length - 1);
+        reverse(0, nums);
 
-        System.out.println(Arrays.toString(arr));
+        System.out.println(Arrays.toString(nums));
     }
 
-    static void reverse(int[] arr, int left, int right) {
-        if (left >= right) {
+    static void reverse(int i, int[] nums) {
+        if (i >= nums.length / 2) {
             return;
         }
 
-        int temp = arr[left];
-        arr[left] = arr[right];
-        arr[right] = temp;
+        int temp = nums[i];
+        nums[i] = nums[nums.length - i - 1];
+        nums[nums.length - i - 1] = temp;
 
-        reverse(arr, left + 1, right - 1);
+        reverse(i + 1, nums);
     }
 }
