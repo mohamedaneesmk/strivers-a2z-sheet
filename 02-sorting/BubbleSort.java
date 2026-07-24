@@ -10,12 +10,12 @@ public class BubbleSort {
 
     private static void bubbleSort(int[] nums) {
 
-        int length = nums.length - 1;
+        int n = nums.length - 1;
 
-        for (int i = 0; i < length - 1; i++) {
+        for (int i = 0; i < n - 1; i++) {
             boolean swapped = false;
 
-            for (int j = 0; j < length - i - 1; j++) {
+            for (int j = 0; j < n - i - 1; j++) {
                 if (nums[j] > nums[j + 1]) {
                     int temp = nums[j];
                     nums[j] = nums[j + 1];
