@@ -9,13 +9,13 @@ public class SelectionSort {
     }
 
     private static void selectionSort(int[] nums) {
-        int length = nums.length;
+        int n = nums.length;
 
-        for (int i = 0; i < length - 1; i++) {
+        for (int i = 0; i < n - 1; i++) {
             int minIndex = i;
 
             // Find the index of the smallest element
-            for (int j = i + 1; j < length; j++) {
+            for (int j = i + 1; j < n; j++) {
                 if (nums[j] < nums[minIndex]) {
                     minIndex = j;
                 }
