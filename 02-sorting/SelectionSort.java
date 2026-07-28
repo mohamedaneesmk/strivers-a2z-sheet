@@ -12,21 +12,25 @@ public class SelectionSort {
         int n = nums.length;
 
         for (int i = 0; i < n - 1; i++) {
+
             int minIndex = i;
 
-            // Find the index of the smallest element
             for (int j = i + 1; j < n; j++) {
-                if (nums[j] < nums[minIndex]) {
+
+                if (nums[minIndex] > nums[j]) {
                     minIndex = j;
                 }
             }
 
-            // Swap only if needed
-            if (minIndex != i) {
-                int temp = nums[i];
-                nums[i] = nums[minIndex];
-                nums[minIndex] = temp;
-            }
+            // Swap
+            swap(nums, i, minIndex);
         }
     }
+
+    private static void swap(int[] nums, int start, int end) {
+        int temp = nums[start];
+        nums[start] = nums[end];
+        nums[end] = temp;
+    }
+
 }
