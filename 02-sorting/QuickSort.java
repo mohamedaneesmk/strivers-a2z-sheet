@@ -8,45 +8,42 @@ public class QuickSort {
         System.out.println(Arrays.toString(nums));
     }
 
-    private static void quickSort(int[] nums, int low, int high) {
-        if (low >= high) {
-            return;
+    private static void quickSort(int[] arr, int low, int high) {
+        if (low < high) {
+            int partitionIndex = partition(arr, low, high);
+            quickSort(arr, low, partitionIndex - 1);
+            quickSort(arr, partitionIndex + 1, high);
         }
-
-        int pivotIndex = partition(nums, low, high);
-
-        quickSort(nums, low, pivotIndex - 1);
-        quickSort(nums, pivotIndex + 1, high);
     }
 
-    private static int partition(int[] nums, int low, int high) {
-        int pivot = nums[low];
-        int left = low;
-        int right = high;
+    private static int partition(int[] arr, int low, int high) {
+        int pivot = arr[low];
+        int i = low;
+        int j = high;
 
-        while (left < right) {
+        while (i < j) {
 
-            while (left <= high - 1 && nums[left] <= pivot) {
-                left++;
+            while (i <= high - 1 && arr[i] <= pivot) {
+                i++;
             }
 
-            while (right >= low + 1 && nums[right] > pivot) {
-                right--;
+            while (j >= low + 1 && arr[j] > pivot) {
+                j--;
             }
 
-            if (left < right) {
-                swap(nums, left, right);
+            if (i < j) {
+                swap(arr, i, j);
             }
         }
 
-        swap(nums, low, right);
+        swap(arr, low, j);
 
-        return right;
+        return j;
     }
 
-    private static void swap(int[] nums, int left, int right) {
-        int temp = nums[left];
-        nums[left] = nums[right];
-        nums[right] = temp;
+    private static void swap(int[] arr, int i, int j) {
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
     }
 }
