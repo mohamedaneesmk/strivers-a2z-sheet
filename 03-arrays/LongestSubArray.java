@@ -1,3 +1,5 @@
+import java.util.HashMap;
+
 public class LongestSubArray {
     public static void main(String[] args) {
         int[] nums = { 10, 5, 2, 7, 1, -10 };
@@ -6,23 +8,32 @@ public class LongestSubArray {
         System.out.println(longestSubarray(nums, k));
     }
 
-    private static int longestSubarray(int[] nums, int key) {
-        int n = nums.length;
-        int max = 0;
+    private static int longestSubarray(int[] nums, int k) {
+        HashMap<Long, Integer> map = new HashMap<>();
 
-        for (int i = 0; i < n; i++) {
+        long prefixSum = 0;
+        int maxLength = 0;
 
-            int sum = 0;
-            for (int j = i; j < n; j++) {
-                sum = sum + nums[j];
+        for (int i = 0; i < nums.length; i++) {
+            prefixSum += nums[i];
 
-                if (key == sum) {
-                    max = Math.max(max, j - i + 1);
-                }
+            // If subarray starts from index 0
+            if (prefixSum == k) {
+                maxLength = i + 1;
             }
 
+            // Check if there exists a prefix sum = prefixSum - k
+            if (map.containsKey(prefixSum - k)) {
+                int length = i - map.get(prefixSum - k);
+                maxLength = Math.max(maxLength, length);
+            }
+
+            // Store only the first occurrence
+            if (!map.containsKey(prefixSum)) {
+                map.put(prefixSum, i);
+            }
         }
 
-        return max;
+        return maxLength;
     }
 }
