@@ -34,7 +34,7 @@ public class FourSum {
 
                 int left = j + 1;
                 int right = n - 1;
-
+ 
                 while (left < right) {
 
                     long sum = (long) nums[i]
