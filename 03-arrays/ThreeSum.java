@@ -20,6 +20,7 @@ public class ThreeSum {
 
         for (int i = 0; i < n - 2; i++) {
 
+            // Skip duplicate first elements
             if (i > 0 && nums[i] == nums[i - 1]) {
                 continue;
             }
@@ -29,22 +30,28 @@ public class ThreeSum {
 
             while (j < k) {
 
-                int sum = nums[i] + nums[j] + nums[k];
+                long sum = (long) nums[i] + nums[j] + nums[k];
 
                 if (sum == 0) {
 
-                    result.add(Arrays.asList(nums[i], nums[j], nums[k]));
+                    result.add(Arrays.asList(
+                            nums[i],
+                            nums[j],
+                            nums[k]));
 
                     j++;
                     k--;
 
+                    // Skip duplicate j
                     while (j < k && nums[j] == nums[j - 1]) {
                         j++;
                     }
 
+                    // Skip duplicate k
                     while (j < k && nums[k] == nums[k + 1]) {
                         k--;
                     }
+
                 } else if (sum < 0) {
                     j++;
                 } else {
