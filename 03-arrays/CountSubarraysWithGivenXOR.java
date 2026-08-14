@@ -4,7 +4,7 @@ import java.util.Map;
 public class CountSubarraysWithGivenXOR {
     public static void main(String[] args) {
 
-        int[] arr = {4, 2, 2, 6, 4};
+        int[] arr = { 4, 2, 2, 6, 4 };
         int k = 6;
 
         System.out.println(countSubarrays(arr, k));
@@ -14,19 +14,17 @@ public class CountSubarraysWithGivenXOR {
 
         Map<Integer, Integer> map = new HashMap<>();
 
+        map.put(0, 1);
+
         int xor = 0;
         int count = 0;
 
-        map.put(0, 1);
+        for (int i = 0; i < arr.length; i++) {
 
-        for (int num : arr) {
-
-            xor ^= num;
-
+            xor = xor ^ arr[i];
             int required = xor ^ k;
 
-            count += map.getOrDefault(required, 0);
-
+            count = count + map.getOrDefault(required, 0);
             map.put(xor, map.getOrDefault(xor, 0) + 1);
         }
 
