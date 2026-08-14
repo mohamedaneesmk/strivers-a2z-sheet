@@ -20,7 +20,7 @@ public class MergeOverLappingIntervals {
 
     private static int[][] mergeOverlappingIntervals(int[][] intervals) {
 
-        Arrays.sort(intervals, (a, b) -> a[0] - b[0]);
+        Arrays.sort(intervals, (a, b) -> Integer.compare(a[0], b[0]));
 
         List<int[]> result = new ArrayList<>();
         result.add(intervals[0]);
