@@ -1,35 +1,46 @@
-import java.util.Arrays;
-
 public class FloorAndCeil {
     public static void main(String[] args) {
         int[] nums = { 3, 4, 4, 7, 8, 10 };
         int target = 5;
 
-        System.out.println(Arrays.toString(getFloorAndCeil(nums, target)));
+        int floor = getFloor(nums, target);
+        int ceil = getCeil(nums, target);
+
+        System.out.println("Floor : " + floor);
+        System.out.print("Ceil : " + ceil);
     }
 
-    private static int[] getFloorAndCeil(int[] nums, int target) {
-
-        int floor = -1;
-        int ceil = -1;
-
-        int low = 0;
-        int high = nums.length - 1;
+    private static int getCeil(int[] nums, int target) { // the smallest element in the array that is ≥ x.
+        int low = 0, high = nums.length - 1;
+        int ans = -1;
 
         while (low <= high) {
-            int mid = low + (high - low) / 2;
+            int mid = (low + high) / 2;
+            if (nums[mid] >= target) {
+                ans = nums[mid];
+                high = mid - 1;
+            } else {
+                low = mid + 1;
+            }
+        }
 
-            if (nums[mid] == target) {
-                return new int[] { target, target };
-            } else if (nums[mid] < target) {
-                floor = nums[mid];
+        return ans;
+    }
+
+    private static int getFloor(int[] nums, int target) { // the largest element in the array that is ≤ x.
+        int low = 0, high = nums.length - 1;
+        int ans = -1;
+
+        while (low <= high) {
+            int mid = (low + high) / 2;
+            if (nums[mid] <= target) {
+                ans = nums[mid];
                 low = mid + 1;
             } else {
-                ceil = nums[mid];
                 high = mid - 1;
             }
         }
 
-        return new int[] { floor, ceil };
+        return ans;
     }
 }
