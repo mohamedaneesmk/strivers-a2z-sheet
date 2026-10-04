@@ -1,4 +1,4 @@
-package backtracking;
+// package backtracking;
 
 public class SumofNumbers {
     public static void main(String[] args) {
