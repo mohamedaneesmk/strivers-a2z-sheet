@@ -1,4 +1,10 @@
-class Solution {
+public class BeautySum {
+    public static void main(String[] args) {
+        BeautySum solution = new BeautySum();
+        System.out.println(solution.beautySum("aabcb"));
+        System.out.println(solution.beautySum("aabcbaa"));
+    }
+
     public int beautySum(String s) {
         int n = s.length();
         int total = 0;
