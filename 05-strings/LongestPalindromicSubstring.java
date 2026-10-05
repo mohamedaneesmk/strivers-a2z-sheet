@@ -1,28 +1,68 @@
-class Solution {
-    public String longestPalindrome(String s) {
-        if (s == null || s.length() < 1) return "";
+class LongestPalindromicSubstring {
 
-        int start = 0, maxLen = 1;
+    public static void main(String[] args) {
 
-        for (int i = 0; i < s.length(); i++) {
-            int len1 = expand(s, i, i);       // odd-length center
-            int len2 = expand(s, i, i + 1);   // even-length center
+        String string = "babad";
+
+        System.out.println(longestPalindrome(string));
+    }
+
+    private static String longestPalindrome(String string) {
+
+        // Handle null or empty string
+        if (string == null || string.length() < 1) {
+            return "";
+        }
+
+        int length = string.length();
+
+        // Starting index of the longest palindrome
+        int start = 0;
+
+        // Minimum palindrome length is 1
+        int maxLen = 1;
+
+        // Try every character as the center
+        for (int i = 0; i < length; i++) {
+
+            // Odd-length palindrome
+            // Example: "aba"
+            int len1 = expand(string, i, i);
+
+            // Even-length palindrome
+            // Example: "abba"
+            int len2 = expand(string, i, i + 1);
+
+            // Take the longer palindrome
             int len = Math.max(len1, len2);
 
+            // Update answer if we found a longer palindrome
             if (len > maxLen) {
+
                 maxLen = len;
+
+                // Calculate starting index
                 start = i - (len - 1) / 2;
             }
         }
 
-        return s.substring(start, start + maxLen);
+        // Return the longest palindrome
+        return string.substring(start, start + maxLen);
     }
 
-    private int expand(String s, int left, int right) {
-        while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)) {
+    private static int expand(String string, int left, int right) {
+
+        // Expand while characters are equal
+        while (left >= 0
+                && right < string.length()
+                && string.charAt(left) == string.charAt(right)) {
+
             left--;
             right++;
         }
-        return right - left - 1;   // length of palindrome found
+
+        // left and right are now one position outside
+        // the actual palindrome
+        return right - left - 1;
     }
 }
