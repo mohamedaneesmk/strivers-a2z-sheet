@@ -1,4 +1,12 @@
-class Solution {
+public class NumberOfSubstringsContainingAllThreeCharacters {
+    public static void main(String[] args) {
+        NumberOfSubstringsContainingAllThreeCharacters solution =
+                new NumberOfSubstringsContainingAllThreeCharacters();
+        System.out.println(solution.numberOfSubstrings("abcabc"));
+        System.out.println(solution.numberOfSubstrings("aaacb"));
+        System.out.println(solution.numberOfSubstrings("abc"));
+    }
+
     public int numberOfSubstrings(String s) {
         int[] last = {-1, -1, -1};
         int count = 0;
